@@ -12,30 +12,41 @@ public class GuessNumber {
         int maxTryCount = 3;
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Guess the number from 0 to 9: ");
-        int userAnswer = scanner.nextInt();
-        System.out.println("User answer is: " + userAnswer);
+         while (true) {
+             printChange();
+             int change = scanner.nextInt();
+             if (change == 0) {
+                 System.exit(0);
+             }
 
-        for(int tryCount = 1; tryCount <= maxTryCount; tryCount++){
-            if (userAnswer == answer) {
-                System.out.println("Congratulation! You WON!");
-                break;
-            } else if (userAnswer > answer) {
-                System.out.println("Your number too big.");
-            } else if (userAnswer < answer) {
-                System.out.println("Your number too small.");
-            }
-            System.out.println("Try one more time. Guess the number 0 to 9\n You have: "+ (maxTryCount - tryCount) + " attempts");
-            userAnswer = scanner.nextInt();
+             System.out.println("Guess the number from 0 to 9: ");
+             int userAnswer = scanner.nextInt();
+             System.out.println("User answer is: " + userAnswer);
 
-            if (tryCount == maxTryCount)
-                System.out.println("You lose!");
+             for (int tryCount = 1; tryCount <= maxTryCount; tryCount++) {
+                 if (userAnswer == answer) {
+                     System.out.println("Congratulation! You WON!");
+                     break;
+                 } else if (userAnswer > answer) {
+                     System.out.println("Your number too big.");
+                 } else if (userAnswer < answer) {
+                     System.out.println("Your number too small.");
+                 }
+                 System.out.println("Try one more time. Guess the number 0 to 9\n You have: " + (maxTryCount - tryCount) + " attempts");
+                 userAnswer = scanner.nextInt();
 
-        }
+                 if (tryCount == maxTryCount)
+                     System.out.println("You lose!");
 
-
+             }
+         }
     }
-
+    public static void printChange(){
+        System.out.println("Welcome, my friend!");
+        System.out.println("Choose the options:");
+        System.out.println("1. Play");
+        System.out.println("0. Exit");
+    }
 
 
 
